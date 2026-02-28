@@ -176,7 +176,7 @@ h1 .line-dim { color:var(--muted); display:block; font-size:0.6em; letter-spacin
 footer {
   position:relative; z-index:1;
   border-top:1px solid var(--border); padding:40px 60px;
-  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px;
+  display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px;
 }
 .footer-brand .logo { margin-bottom:12px; }
 .footer-brand p { font-size:0.84rem; color:var(--muted); line-height:1.7; max-width:260px; }
@@ -199,6 +199,7 @@ footer {
   .companies { padding:40px 20px; }
   .cta-banner { margin:0 20px 60px; padding:40px 24px; }
   footer { padding:40px 20px; grid-template-columns:1fr 1fr; }
+  footer .footer-brand { grid-column:1/-1; }
 }
 </style>
 </head>
@@ -213,7 +214,7 @@ footer {
     <a href="problems.html">Problems</a>
     <a href="#companies">Companies</a>
     <a href="#pricing">Pricing</a>
-    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
   </div>
   <div class="nav-right">
     <div class="nav-badge"><span>●</span> 100% Free</div>
@@ -466,7 +467,7 @@ footer {
         <li>Priority support</li>
         <li>Certificate of completion</li>
       </ul>
-      <a href="#" class="plan-btn pro" onclick="alert('Pro coming soon! Sign up for free now and we\'ll notify you.')">Join Waitlist →</a>
+      <a href="mailto:hello@codeprep.io?subject=CodePrep Pro Waitlist" class="plan-btn pro">Join Waitlist →</a>
     </div>
     <div class="price-card">
       <div class="plan-label">Teams</div>
@@ -481,7 +482,7 @@ footer {
         <li>Slack integration</li>
         <li>Dedicated support</li>
       </ul>
-      <a href="mailto:hello@codeprep.io" class="plan-btn free">Contact Us →</a>
+      <a href="mailto:hello@codeprep.io?subject=CodePrep Teams Plan" class="plan-btn free">Contact Us →</a>
     </div>
   </div>
 </section>
@@ -509,15 +510,7 @@ footer {
     <h4>Company</h4>
     <a href="about.html">About Us</a>
     <a href="privacy.html">Privacy Policy</a>
-    <a href="#">Contact</a>
-    <a href="#">Blog</a>
-  </div>
-  <div class="footer-col">
-    <h4>Community</h4>
-    <a href="#">Discord</a>
-    <a href="#">Twitter/X</a>
-    <a href="#">Reddit</a>
-    <a href="#">GitHub</a>
+    <a href="mailto:hello@codeprep.io">Contact Us</a>
   </div>
   <div class="footer-bottom">
     <div>© 2025 CodePrep · 100% Free, Forever</div>
@@ -525,17 +518,10 @@ footer {
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function filterProbs(btn, type) {
   document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   const rows = document.querySelectorAll('#prob-list tr');
   rows.forEach(row => {
-    if (type === 'all') { row.style.display = ''; return; }
-    const text = row.textContent.toLowerCase();
-    row.style.display = text.includes(type) ? '' : 'none';
-  });
-}
-</script>
-</body>
-</html>
+    if (type === 'all') { row.style.display = ''; ret
