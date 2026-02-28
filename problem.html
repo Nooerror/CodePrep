@@ -298,23 +298,7 @@ Output: [0, 1]</pre>
     <div class="code-editor">
       <textarea class="code-area" id="code-area" spellcheck="false">def twoSum(nums, target):
     # Write your solution here
-    # Hint: Try using a hash map!
-    
-    seen = {}
-    
-    for i, num in enumerate(nums):
-        complement = target - num
-        
-        if complement in seen:
-            return [seen[complement], i]
-        
-        seen[num] = i
-    
-    return []
-
-# Test your solution:
-print(twoSum([2, 7, 11, 15], 9))  # Expected: [0, 1]
-print(twoSum([3, 2, 4], 6))       # Expected: [1, 2]
+    pass
 </textarea>
     </div>
 
@@ -387,18 +371,17 @@ function submitCode() {
 }
 
 function resetCode() {
-  if(confirm('Reset code to starter template?')) {
-    document.getElementById('code-area').value = `def twoSum(nums, target):
-    # Write your solution here
-    pass`;
+  if(confirm('Reset code to blank starter?')) {
+    const lang = document.querySelector('.lang-select').value;
+    document.getElementById('code-area').value = templates[lang];
   }
 }
 
 const templates = {
-  python: `def twoSum(nums, target):\n    # Write your solution here\n    seen = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i\n    return []`,
-  javascript: `var twoSum = function(nums, target) {\n    // Write your solution here\n    const seen = {};\n    for (let i = 0; i < nums.length; i++) {\n        const complement = target - nums[i];\n        if (complement in seen) return [seen[complement], i];\n        seen[nums[i]] = i;\n    }\n    return [];\n};`,
-  java: `class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        // Write your solution here\n        Map<Integer,Integer> seen = new HashMap<>();\n        for (int i = 0; i < nums.length; i++) {\n            int comp = target - nums[i];\n            if (seen.containsKey(comp)) return new int[]{seen.get(comp), i};\n            seen.put(nums[i], i);\n        }\n        return new int[]{};\n    }\n}`,
-  cpp: `class Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        // Write your solution here\n        unordered_map<int,int> seen;\n        for (int i = 0; i < nums.size(); i++) {\n            int comp = target - nums[i];\n            if (seen.count(comp)) return {seen[comp], i};\n            seen[nums[i]] = i;\n        }\n        return {};\n    }\n};`
+  python: `def twoSum(nums, target):\n    # Write your solution here\n    pass`,
+  javascript: `var twoSum = function(nums, target) {\n    // Write your solution here\n\n};`,
+  java: `class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        // Write your solution here\n        return new int[]{};\n    }\n}`,
+  cpp: `class Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        // Write your solution here\n        return {};\n    }\n};`
 };
 
 function changeLang(lang) {
